@@ -1,0 +1,53 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container-v {
+    display: flex;
+    flex-direction: column;
+    /* Stack nav and content vertically */
+    height: 100vh;
+    /* 100% of the viewport height */
+}
+
+header {
+    width: 100%;
+    /* Full width */
+    background-color: #333;
+    color: #fff;
+    /* Adjust as needed */
+}
+
+.container-h {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    /* Prevents overflow caused by child elements */
+}
+
+aside {
+    width: 200px;
+    /* Fixed width */
+    background-color: #f4f4f4;
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+}
+
+main {
+    flex-grow: 1;
+    /* Takes the remaining space */
+    background-color: #fff;
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+}
+
+#page-panel {
+    background: gray;
+}
+
+#pdf-title {
+    color: black;
+    font-size: 16px;
+}

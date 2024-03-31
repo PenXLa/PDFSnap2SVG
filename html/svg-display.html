@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>SVG Display</title>
+        <link rel="stylesheet" href="/css/svg-display.css">
+    </head>
+    <body>
+        <!-- 这里的 src 属性稍后将通过 JavaScript 动态设置 -->
+        <img id="svgImage" src="" alt="SVG Image" />
+        <script>
+            // 从 URL 参数中获取 SVG Blob URL
+            const params = new URLSearchParams(window.location.search);
+            const svgUrl = params.get('url');
+            
+            // 设置 img 元素的 src 为 SVG Blob URL
+            document.getElementById('svgImage').src = svgUrl;
+        </script>
+    </body>
+</html>

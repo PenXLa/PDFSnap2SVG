@@ -1,0 +1,18 @@
+#outline {
+	font-size: 12px;
+}
+
+#outline ul {
+	margin: 0;
+	padding-left: 20px;
+}
+
+#outline a {
+	color: black;
+	text-decoration: none;
+}
+
+#outline a:hover {
+	color: blue;
+	text-decoration: underline;
+}

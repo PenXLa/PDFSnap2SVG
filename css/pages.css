@@ -1,0 +1,39 @@
+#pages {
+	margin: 0 auto;
+}
+
+div.page {
+	position: relative;
+	background-color: white;
+	margin: 16px auto;
+	box-shadow: 0px 2px 8px #0004;
+}
+
+div.page * {
+	position: absolute;
+}
+
+div.page canvas {
+	user-select: none;
+}
+
+div.text span {
+	white-space: pre;
+	line-height: 1;
+	color: transparent;
+}
+
+div.text ::selection {
+	background: hsla(220, 100%, 50%, 0.2);
+}
+
+div.link a:hover {
+	border: 1px dotted blue;
+}
+
+div.search > div {
+	pointer-events: none;
+	border: 1px solid hotpink;
+	background-color: lightpink;
+	mix-blend-mode: multiply;
+}

@@ -1,0 +1,4 @@
+[submodule "lib/mupdf.js"]
+	path = lib/mupdf.js
+	url = https://github.com/PenXLa/mupdf.js
+	branch = svg_support_in_browser

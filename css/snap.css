@@ -1,0 +1,12 @@
+.snap-mask {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.25);
+    cursor: crosshair;
+}
+
+.snap-box {
+    width: 50%; /* 可根据需要调整大小 */
+    height: 50%; /* 可根据需要调整大小 */
+    background-color: transparent;
+    border: 2px dashed red; /* 明显的边框以标示截图区域 */
+}

@@ -1,0 +1,13 @@
+body {
+    background: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+img {
+    display: block;
+    background: white;
+    box-shadow: 0px 2px 8px #0004;
+}
