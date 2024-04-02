@@ -1,5 +1,7 @@
 # PDFSnap2SVG
 
+Try the demo [here](https://penxla.github.io/pdfsnap2svg/index.html)!
+
 ## Build \& Depoly With Docker
 These commands detail how to use Docker to build and deploy the PDFSnap2SVG service, offering an efficient, containerized approach suitable for rapid deployment across different environments.
 
