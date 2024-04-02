@@ -120,7 +120,8 @@ async function takeSvgSnap(doc_id, snapRect) {
         height: (snapRect.height / snapRect.page.clientHeight) * pdfPageSize.height,
     };
 
-    let svg = await getSvgSnap(doc_id, snapRect.pageIndex);
+    let textOption = document.getElementById("text-option").value;
+    let svg = await worker.saveToSvgBuffer(doc_id, snapRect.pageIndex, `text=${textOption}`)
 
     svg = cropAndResizeSvg(svg, pdfSnapRect, snapRect.width, snapRect.height);
     // openSvgInNewTab(svg);

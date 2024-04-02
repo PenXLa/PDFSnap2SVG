@@ -1,9 +1,5 @@
 "use strict"
 
-async function getSvgSnap(doc_id, page_number) {
-    return await worker.saveToSvgBuffer(doc_id, page_number, "text=path")
-}
-
 // viewbox: crop 的矩形区域
 // width、height: 最终svg展示的宽高
 function cropAndResizeSvg(svg, viewBox, width, height) {
@@ -58,3 +54,32 @@ async function downloadSvg(svg, filename) {
     a.click();
     URL.revokeObjectURL(url);
 }
+
+const compressArrayBuffer = async (input) => {
+    //create the stream
+    const cs = new CompressionStream("gzip");
+    //create the writer
+    const writer = cs.writable.getWriter();
+    //write the buffer to the writer 
+    writer.write(input);
+    writer.close();
+    //create the output 
+    const output = [];
+    const reader = cs.readable.getReader();
+    let totalSize = 0;
+    //go through each chunk and add it to the output
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      output.push(value);
+      totalSize += value.byteLength;
+    }
+    const concatenated = new Uint8Array(totalSize);
+    let offset = 0;
+    //finally build the compressed array and return it 
+    for (const array of output) {
+      concatenated.set(array, offset);
+      offset += array.byteLength;
+    }
+    return concatenated;
+};

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/snap.css">
     <link rel="stylesheet" href="/css/pages.css">
     <link rel="stylesheet" href="/css/outline.css">
+    <link rel="icon" type="image/svg+xml" href="assets/pdf.svg">
 </head>
 
 <body>
@@ -32,10 +33,22 @@
                                     accept=".pdf,application/pdf"
                                     onchange="open_document_from_file(event.target.files[0])"
                                 >
-                                <button type="button" class="btn btn-light" onclick="document.getElementById('open-file-input').click()">Open</button>
+                                <button type="button" class="btn btn-light" onclick="document.getElementById('open-file-input').click()">
+                                    <img src="assets/open.svg" width="20" height="20">
+                                    Open
+                                </button>
                             </li>
                             <li class="nav-item">
-                                <button type="button" class="btn btn-light" onclick="clearMask(); showMask();">Snap</button>
+                                <button type="button" class="btn btn-light" onclick="clearMask(); showMask();">
+                                    <img src="assets/snap.svg" width="20" height="20">
+                                    Snap
+                                </button>
+                            </li>
+                            <li style="display: flex; align-items: center;">
+                                <select class="form-select" id="text-option">
+                                    <option value="path" selected>Text as Path (accurate fonts)</option>
+                                    <option value="text">Text as Text (inaccurate fonts)</option>
+                                </select>
                             </li>
                         </ul>
                     </div>
