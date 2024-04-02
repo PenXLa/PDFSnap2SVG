@@ -4,7 +4,8 @@ RUN apt-get update && apt-get install -y \
     python3 \
     build-essential \
     git \
-    curl
+    curl \
+    unzip
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
     bash -c 'source $HOME/.nvm/nvm.sh && nvm install 20'

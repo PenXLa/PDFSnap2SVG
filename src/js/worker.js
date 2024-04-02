@@ -148,20 +148,27 @@ methods.drawPageAsPixmap = function (doc_id, page_number, dpi) {
 	return imageData
 }
 
-methods.saveToSvgBuffer = function (doc_id, page_number, options) {
+methods.saveToSvgBuffer = function (doc_id, page_number, options, trimRect=null) {
 	let buffer = new mupdf.Buffer()
-
 	let doc = document_map[doc_id]
-	let page = doc.loadPage(page_number)
+	let docCopy = new mupdf.PDFDocument();
+	docCopy.graftPage(0, doc, page_number)
+	
+	let page = docCopy.loadPage(0)
 	let media_box = page.getBounds()
 	
 	let writer = new mupdf.DocumentWriter(buffer, "svg", options);
 	let device = writer.beginPage(media_box);
 
+	if (trimRect) {	
+		mupdf.trimPdfPage(docCopy, page, trimRect.x0, trimRect.y0, trimRect.x1, trimRect.y1);
+	}
 	page.run(device, mupdf.Matrix.identity);
 
 	writer.endPage(device);
 	writer.close();
+	page.destroy();
+	docCopy.destroy();
 
 	return buffer.asUint8Array()
 }

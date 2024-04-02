@@ -118,10 +118,19 @@ async function takeSvgSnap(doc_id, snapRect) {
         top: (snapRect.top / snapRect.page.clientHeight) * pdfPageSize.height,
         width: (snapRect.width / snapRect.page.clientWidth) * pdfPageSize.width,
         height: (snapRect.height / snapRect.page.clientHeight) * pdfPageSize.height,
+        right: (snapRect.right / snapRect.page.clientWidth) * pdfPageSize.width,
+        bottom: (snapRect.bottom / snapRect.page.clientHeight) * pdfPageSize.height,
     };
 
     let textOption = document.getElementById("text-option").value;
-    let svg = await worker.saveToSvgBuffer(doc_id, snapRect.pageIndex, `text=${textOption}`)
+    let trimBox = {
+        x0: pdfSnapRect.left, 
+        y1: pdfPageSize.height - pdfSnapRect.top, // 坐标系不同，y轴需要反转
+        x1: pdfSnapRect.right, 
+        y0: pdfPageSize.height - pdfSnapRect.bottom // 坐标系不同，y轴需要反转
+    };
+    let doTrim = document.getElementById("trim-option").checked;
+    let svg = await worker.saveToSvgBuffer(doc_id, snapRect.pageIndex, `text=${textOption}`, doTrim ? trimBox : null);
 
     svg = cropAndResizeSvg(svg, pdfSnapRect, snapRect.width, snapRect.height);
     // openSvgInNewTab(svg);
@@ -130,18 +139,3 @@ async function takeSvgSnap(doc_id, snapRect) {
     dateTime = getFormattedTimestamp();
     downloadSvg(svg, `${pdfTitle}-${snapRect.pageIndex}-${dateTime}.svg`);
 }
-
-// window.addEventListener("keydown", function (e) {
-//     if (!snappping) return;
-//     if (e.key === "Enter") {
-//         e.preventDefault();
-//         takeSvgSnap(current_doc, snapRect);
-//         clearMask();
-//     } else if (e.key === "Escape") {
-//         e.preventDefault();
-//         clearMask();
-//     }
-    
-// })
-
-
