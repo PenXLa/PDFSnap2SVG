@@ -4,6 +4,7 @@
 These commands detail how to use Docker to build and deploy the PDFSnap2SVG service, offering an efficient, containerized approach suitable for rapid deployment across different environments.
 
 ```bash
+git submodule update --init --recursive
 docker build -t penxla/pdfsnap2svg:v1 .
 docker run --name pdfsnap2svg -p 9630:9630 -d penxla/pdfsnap2svg:v1
 ```

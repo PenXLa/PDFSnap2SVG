@@ -7,8 +7,7 @@ RUN apt-get update && apt-get install -y \
     curl
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
-    . $HOME/.nvm/nvm.sh && \
-    nvm install 20
+    bash -c 'source $HOME/.nvm/nvm.sh && nvm install 20'
 
 RUN git clone -b 3.1.55 --single-branch --depth 1 https://github.com/emscripten-core/emsdk.git /opt/emsdk && \
     /opt/emsdk/emsdk install 3.1.55
@@ -24,6 +23,3 @@ WORKDIR /app
 COPY --from=build /app/dist /app/dist
 
 CMD ["python3", "-m", "http.server", "9630", "--directory", "/app/dist"]
-
-
-

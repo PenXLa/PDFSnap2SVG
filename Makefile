@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 all: mupdf
 	@rm -rf dist
 	@mkdir -p dist
