@@ -1,5 +1,7 @@
 # PDFSnap2SVG
 
+A purely front-end tool to generate SVG snapshots from PDFs in the browser.
+
 Try the demo [here](https://penxla.github.io/pdfsnap2svg/index.html)!
 
 ## Build \& Depoly With Docker
