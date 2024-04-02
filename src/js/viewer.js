@@ -76,7 +76,7 @@ function clear_message() {
 
 // BACKGROUND WORKER
 
-const worker = new Worker("/js/worker.js", { type: "module" })
+const worker = new Worker("js/worker.js", { type: "module" })
 
 worker._promise_id = 1
 worker._promise_map = new Map()
