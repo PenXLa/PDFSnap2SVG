@@ -51,3 +51,7 @@ main {
     color: black;
     font-size: 16px;
 }
+
+.settings-item {
+    margin: 10px;
+}

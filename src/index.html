@@ -44,21 +44,35 @@
                                     Snap
                                 </button>
                             </li>
-                            <li style="display: flex; align-items: center;">
-                                <select class="form-select" id="text-option">
-                                    <option value="path" selected>Text as Path (accurate fonts)</option>
-                                    <option value="text">Text as Text (inaccurate fonts)</option>
-                                </select>
-                            </li>
-                            <li style="display: flex; align-items: center;">
-                                <div class="form-check form-switch" style="margin: 10px;">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="trim-option" checked>
-                                    <label class="form-check-label text-dark" for="trim-option">Trim contents outside the captured area</label>
-                                </div>
-                            </li>
                         </ul>
+                        <span id="pdf-title" class="text-dark" style="flex-grow: 1; text-align: center;"></span>
+                        <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                <img src="assets/settings.svg" width="20" height="20">
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" style="white-space: nowrap">
+                                <li><h6 class="dropdown-header">Settings</h6></li>
+                                <li>
+                                    <div class="form-check form-switch settings-item">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="text-as-path-option" checked>
+                                        <label class="form-check-label text-dark" for="text-as-path-option">Convert text to path (accurate fonts)</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-check form-switch settings-item">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="trim-option" checked>
+                                        <label class="form-check-label text-dark" for="trim-option">Trim contents outside the captured area</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-check form-switch settings-item">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="svg-zoom-option" checked>
+                                        <label class="form-check-label text-dark" for="svg-zoom-option">Resize SVG with current zoom</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <p id="pdf-title"></p>
                 </div>
             </nav>
         </header>

@@ -122,7 +122,8 @@ async function takeSvgSnap(doc_id, snapRect) {
         bottom: (snapRect.bottom / snapRect.page.clientHeight) * pdfPageSize.height,
     };
 
-    let textOption = document.getElementById("text-option").value;
+    let textAsPath = document.getElementById("text-as-path-option").checked;
+    let textOption = textAsPath ? "path" : "text";
     let trimBox = {
         x0: pdfSnapRect.left, 
         y1: pdfPageSize.height - pdfSnapRect.top, // 坐标系不同，y轴需要反转
@@ -132,7 +133,10 @@ async function takeSvgSnap(doc_id, snapRect) {
     let doTrim = document.getElementById("trim-option").checked;
     let svg = await worker.saveToSvgBuffer(doc_id, snapRect.pageIndex, `text=${textOption}`, doTrim ? trimBox : null);
 
-    svg = cropAndResizeSvg(svg, pdfSnapRect, snapRect.width, snapRect.height);
+    // resize and crop
+    let zoomSvg = document.getElementById("svg-zoom-option").checked;
+    let svgSize = zoomSvg ? snapRect : pdfSnapRect;
+    svg = cropAndResizeSvg(svg, pdfSnapRect, svgSize.width, svgSize.height);
     // openSvgInNewTab(svg);
     // copySvgToClipboard(svg);
     pdfTitle = await worker.documentTitle(doc_id);

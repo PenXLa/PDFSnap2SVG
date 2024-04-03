@@ -1,6 +1,8 @@
 SHELL := /bin/bash
 
-all: mupdf
+all: mupdf html
+
+html:
 	@rm -rf dist
 	@mkdir -p dist
 	@cp -r src/* dist/
