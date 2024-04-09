@@ -33,21 +33,24 @@
                                     accept=".pdf,application/pdf"
                                     onchange="open_document_from_file(event.target.files[0])"
                                 >
-                                <button type="button" class="btn btn-light" onclick="document.getElementById('open-file-input').click()">
+                                <button type="button" class="btn btn-light btn-with-icon" onclick="document.getElementById('open-file-input').click()">
                                     <img src="assets/open.svg" width="20" height="20">
                                     Open
                                 </button>
                             </li>
                             <li class="nav-item">
-                                <button type="button" class="btn btn-light" onclick="clearMask(); showMask();">
+                                <button type="button" class="btn btn-light btn-with-icon" onclick="clearMask(); showMask();">
                                     <img src="assets/snap.svg" width="20" height="20">
                                     Snap
                                 </button>
                             </li>
                         </ul>
                         <span id="pdf-title" class="text-dark" style="flex-grow: 1; text-align: center;"></span>
+                        <a href="https://github.com/PenXLa/PDFSnap2SVG" target="_blank" style="margin-right: 8px;">
+                            <img src="assets/github.svg" width="20" height="20">
+                        </a>
                         <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                            <button class="btn btn-light dropdown-toggle btn-with-icon" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                 <img src="assets/settings.svg" width="20" height="20">
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" style="white-space: nowrap">
@@ -60,7 +63,7 @@
                                 </li>
                                 <li>
                                     <div class="form-check form-switch settings-item">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="trim-option" checked>
+                                        <input class="form-check-input" type="checkbox" role="switch" id="trim-option">
                                         <label class="form-check-label text-dark" for="trim-option">Trim contents outside the captured area</label>
                                     </div>
                                 </li>

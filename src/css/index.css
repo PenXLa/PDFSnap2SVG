@@ -55,3 +55,12 @@ main {
 .settings-item {
     margin: 10px;
 }
+
+.btn-with-icon {
+    display: flex;
+    align-items: center;
+}
+
+.btn-with-icon img {
+    margin-right: 8px;
+}
